@@ -16,3 +16,44 @@ library(tidyverse)
 ## Data Import
 
 Data comes in a variety of formats (.csv, Excel, SAS, etc.) and there are a number of packages that ease loading data in R.
+
+### CSVs
+
+Loading CSV datasets are accomplished via the `read_csv` function (part of the `readr` package) which is an updated version of the base R CSV import function.
+
+#### Important Sidebar
+
+Make sure to use relative paths instead of absolute paths to increase the robustness of your code
+
+    "./data/FAS_litters.csv"
+
+```{r}
+litters_df <- read_csv("./data/FAS_litters.csv")
+
+# the janitor package will convert all column names to snake_case
+
+litters_df <- janitor::clean_names(litters_df)
+```
+
+The `skimr::skim()` function provides summary statistics of your columns
+
+```{r}
+skimr::skim(litters_df)
+```
+
+#### Learning Assessment
+
+```{r}
+pups_df <- read_csv("./data/FAS_pups.csv")
+```
+
+## Looking at Data
+
+The first step is to look at the data
+
+```{r}
+litters_df
+tail(litters_df, 5)
+```
+
+`View` and `view` are both useful, but don't work particularly well in an RMarkdown. Run it from the console instead.
