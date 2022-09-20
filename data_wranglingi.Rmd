@@ -1,0 +1,18 @@
+---
+title: "data_cleaning"
+author: "Rahul Hosalli"
+date: "2022-09-20"
+output: html_document
+---
+
+# Data Cleaning I
+
+Load required packages
+
+```{r}
+library(tidyverse)
+```
+
+## Data Import
+
+Data comes in a variety of formats (.csv, Excel, SAS, etc.) and there are a number of packages that ease loading data in R.
